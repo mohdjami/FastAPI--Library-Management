@@ -61,9 +61,9 @@ The app is containerized using Docker, which allows for easy deployment and scal
 To get started with the library management app, follow these steps:
 
 1. Clone the repository.
-2. Install the required dependencies.
+2. Setup the environment Variables as given in env.example.
 3. Configure the Redis connection for rate limiting.
-4. Build and run the Docker container.
+4. Run the docker compose uo command.
 
 ## Contributing
 

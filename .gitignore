@@ -10,6 +10,4 @@ env/
 
 
 # Ignore any other files or directories specific to your project
-*.env
-*.env.*
-env.*
+.env
