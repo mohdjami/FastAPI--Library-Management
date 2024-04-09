@@ -2,7 +2,8 @@ from fastapi import APIRouter, Body, Request, Response, HTTPException, status
 from fastapi.encoders import jsonable_encoder
 from typing import List
 from pydantic import BaseModel
-from models import Student, StudentUpdate
+from models.models import Student, StudentUpdate
+
 
 router = APIRouter()
 class Id(BaseModel):
