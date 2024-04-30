@@ -1,6 +1,9 @@
-fastapi[all]
+fastapi
 uvicorn
 pymongo
 redis
-python-dotenv==0.19.2
 dotenv
+pydantic
+pymongo
+typing
+uuid
