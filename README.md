@@ -63,7 +63,7 @@ To get started with the library management app, follow these steps:
 1. Clone the repository.
 2. Setup the environment Variables as given in env.example.
 3. Configure the Redis connection for rate limiting.
-4. Run the docker compose uo command.
+4. Run the docker compose up command.
 
 ## Contributing
 

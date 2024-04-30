@@ -1,14 +1,11 @@
-from fastapi import FastAPI, Request, HTTPException
+from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from dotenv import dotenv_values
 from pymongo import MongoClient
 from fastapi.responses import JSONResponse
-import uvicorn
 from routes.route import router 
-import redis
 from rediss import rate_limiting
 config = dotenv_values(".env")
-r = redis.Redis(host='usw1-major-tadpole-33542.upstash.io', port=33542)
 app= FastAPI()
 
 from fastapi.responses import JSONResponse
@@ -24,6 +21,10 @@ async def add_process_time_header(request: Request, call_next):
     except Exception as e:
         return JSONResponse(status_code=500, content={"detail": str(e)})
     return JSONResponse(status_code=429, content={"detail": "Rate limit exceeded. Try again in 5 seconds."})
+
+@app.get('/')
+def read_root():
+    return {"msg": "Hello World"}
 
 
 @app.on_event("startup")

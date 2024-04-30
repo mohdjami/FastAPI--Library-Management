@@ -53,9 +53,13 @@ async def update_student(id: str, req: Request, student: StudentUpdate = Body(..
 @router.post("/",response_description="API to create a student in the system.", status_code=status.HTTP_201_CREATED, response_model=Id)
 async def create_Student(req: Request, res: Response, student: Student = Body(...)):
     student = jsonable_encoder(student)
+    if student is None:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid data")
+    
     new_student = req.app.database["students"].insert_one(student)
     createdStudent = req.app.database["students"].find_one({"_id": new_student.inserted_id})
     return {"id": str(createdStudent["_id"])}
+
 
 @router.delete('/', response_description="API to delete a student in the system")
 async def delete_student(req: Request, res: Response):
